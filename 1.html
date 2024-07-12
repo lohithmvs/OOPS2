@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Car(make,model,year){
+            this.make=make;
+            this.model=model;
+            this.year=year;
+            console.log(`This Car is a ${this.year} ${this.make} ${this.model}`);
+        }
+        let obj=new Car("Toyota","Camry","2021");
+        function showCarDetails(make,model,year,color,owner){
+            Car.apply(this,[make,model,year]);
+            this.color=color;
+            this.owner=owner;
+            console.log(`This ${this.year} ${this.make} ${this.model} is ${this.color} and owned by ${this.owner}.`);
+        }
+        let obj1=new showCarDetails("Toyota","Camry","2021","blue","Alice");
+        let displayBoundDetails=showCarDetails.bind("Toyota","Camry","2021","blue","Alice");
+        displayBoundDetails();
+    </script>
+</body>
+</html>
